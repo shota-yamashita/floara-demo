@@ -7,8 +7,15 @@
 
 <p>
   <strong>Content:</strong>
-  <%= @book.content %>
+  <%= text_area :book, :content, class: "test" %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>
+
+<script>
+  var editor = new FroalaEditor('.test', {}, function () {
+    editor.edit.off();
+    editor.toolbar.hide();
+  });
+</script>
